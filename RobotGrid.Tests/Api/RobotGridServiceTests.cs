@@ -1,4 +1,5 @@
 ﻿using FluentAssertions;
+using Microsoft.Extensions.Configuration;
 using RobotGrid.Api.Models;
 using RobotGrid.Api.Services;
 using RobotGrid.Domain;
@@ -16,7 +17,12 @@ namespace RobotGrid.Tests.Api
 
         public RobotGridServiceTests()
         {
-            sut = new RobotGridService(new Movement());
+            var inMemorySettings = new Dictionary<string, string> { { "MaximumCoordinateNumber", "50" } };
+            IConfiguration configuration = new ConfigurationBuilder()
+                .AddInMemoryCollection(inMemorySettings)
+                .Build();
+
+            sut = new RobotGridService(new Movement(configuration));
         }
 
         [Theory]
