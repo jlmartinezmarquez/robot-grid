@@ -8,4 +8,8 @@
     <PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="6.4.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\RobotGrid.Domain\RobotGrid.Domain.csproj" />
+  </ItemGroup>
+
 </Project>

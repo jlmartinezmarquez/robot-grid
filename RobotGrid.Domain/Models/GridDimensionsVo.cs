@@ -2,14 +2,14 @@
 {
     public class GridDimensionsVo
     {
-        public GridDimensionsVo(int width, int height)
+        public GridDimensionsVo(int x, int y)
         {
-            Width = width;
-            Height = height;
+            X = x;
+            Y = y;
         }
 
-        public int Width { get; }
+        public int X { get; }
         
-        public int Height { get; }
+        public int Y { get; }
     }
 }

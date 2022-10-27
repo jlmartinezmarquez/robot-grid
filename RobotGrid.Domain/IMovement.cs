@@ -4,6 +4,10 @@ namespace RobotGrid.Domain
 {
     public interface IMovement
     {
-        string CalculateFinalPosition(MovementInstructionVo movementInstruction);
+        PositionVo Face(PositionVo initialPosition, char whereTo);
+
+        PositionVo MoveUpFront(PositionVo initialPosition);
+
+        bool CheckWhetherOutOfTheGrid(GridDimensionsVo gridDimensions, PositionVo position);
     }
 }

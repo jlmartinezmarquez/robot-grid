@@ -1,8 +1,8 @@
 ﻿namespace RobotGrid.Domain.Models
 {
-    public class InitialPositionVo
+    public class PositionVo
     {
-        public InitialPositionVo(int x, int y, char facing)
+        public PositionVo(int x, int y, char facing)
         {
             X = x;
             Y = y;
