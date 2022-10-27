@@ -1,6 +1,8 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using RobotGrid.Api.Mappers;
+using RobotGrid.Api.Services;
 using RobotGrid.Domain;
+using System.Reflection;
 
 namespace RobotGrid.Api.Configuration
 {
@@ -9,8 +11,12 @@ namespace RobotGrid.Api.Configuration
         public static IServiceCollection RegisterDependencyInjections(this IServiceCollection services)
         {
             // TODO: Use Scrutor package here
-            services.AddScoped<IMovement, Movement>();  
-            services.AddScoped<IApiDomainMapper, ApiDomainMapper>();
+            //services.Scan(scan => scan.FromAssemblies(typeof(Startup).GetTypeInfo().Assembly).AddClasses().AsImplementedInterfaces().WithScopedLifetime());
+            //services.Scan(scan => scan.FromAssemblies(typeof(IMovement).GetTypeInfo().Assembly).AddClasses().AsImplementedInterfaces().WithScopedLifetime());
+
+            services.AddScoped<IMovement, Movement>();
+            services.AddScoped<IRobotGridService, RobotGridService>();
+            services.AddScoped<IRestMapper, RestMapper>();
             return services;
         }
     }

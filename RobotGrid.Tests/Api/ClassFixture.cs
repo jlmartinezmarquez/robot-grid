@@ -1,6 +1,8 @@
-﻿using Microsoft.AspNetCore.Hosting;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.TestHost;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Net.Http;
 
@@ -11,6 +13,7 @@ namespace RobotGrid.Tests.Api
         public readonly IConfiguration Configuration;
         public readonly TestServer Server;
         public readonly HttpClient Client;
+        public readonly IMapper Mapper;
 
         public ClassFixture()
         {
@@ -25,6 +28,8 @@ namespace RobotGrid.Tests.Api
                 .UseConfiguration(Configuration));
 
             Client = Server.CreateClient();
+
+            Mapper = Server.Services.GetRequiredService<IMapper>();
         }
 
         public void Dispose()

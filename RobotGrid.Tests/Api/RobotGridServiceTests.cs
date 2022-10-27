@@ -11,18 +11,13 @@ using Xunit;
 
 namespace RobotGrid.Tests.Api
 {
-    public class RobotGridServiceTests
+    public class RobotGridServiceTests : IClassFixture<ClassFixture>
     {
         private readonly IRobotGridService sut;
 
-        public RobotGridServiceTests()
-        {
-            var inMemorySettings = new Dictionary<string, string> { { "MaximumCoordinateNumber", "50" } };
-            IConfiguration configuration = new ConfigurationBuilder()
-                .AddInMemoryCollection(inMemorySettings)
-                .Build();
-
-            sut = new RobotGridService(new Movement(configuration));
+        public RobotGridServiceTests(ClassFixture fixture)
+        { 
+            sut = new RobotGridService(new Movement(fixture.Configuration), fixture.Mapper);
         }
 
         [Theory]

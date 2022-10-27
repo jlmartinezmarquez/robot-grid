@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.Configuration;
 using RobotGrid.Domain.Models;
 using System;
+using System.Collections.Generic;
 
 namespace RobotGrid.Domain
 {
@@ -13,8 +14,23 @@ namespace RobotGrid.Domain
             this.configuration = configuration;
         }
 
-        public PositionVo Face(PositionVo initialPosition, char newOrientation)
+        public PositionVo Face(PositionVo initialPosition, char instruction)
         {
+            var orientations = new Dictionary<string, char>
+            {
+                { "E L", 'N' },
+                { "E R", 'S' },
+                { "W L", 'S' },
+                { "W R", 'N' },
+                { "S L", 'E' },
+                { "S R", 'W' },
+                { "N L", 'W' },
+                { "N R", 'E' },
+            };
+
+            var composedKey = $"{initialPosition.Facing} {instruction}";
+            var newOrientation = orientations[composedKey];
+
             return new PositionVo(initialPosition.X, initialPosition.Y, newOrientation);    
         }
 
@@ -39,8 +55,8 @@ namespace RobotGrid.Domain
         {
             var maxCoordinateNumber = int.Parse(configuration.GetValue<string>("MaximumCoordinateNumber"));
 
-            var isOut = position.X > gridDimensions.X ||
-                position.Y > gridDimensions.Y ||
+            var isOut = position.X >= gridDimensions.X ||
+                position.Y >= gridDimensions.Y ||
                 position.X < 0 ||
                 position.Y < 0 ||
                 position.X > maxCoordinateNumber ||

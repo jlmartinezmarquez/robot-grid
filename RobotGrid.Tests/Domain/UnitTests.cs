@@ -4,7 +4,6 @@ using RobotGrid.Domain;
 using RobotGrid.Domain.Models;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using Xunit;
 
 namespace RobotGrid.Tests.Domain
@@ -24,8 +23,8 @@ namespace RobotGrid.Tests.Domain
         }
 
         [Theory]
-        [InlineData(1, 2, 'E', 'W', 1, 2, 'W')]
-        [InlineData(5, 5, 'S', 'N', 5, 5, 'N')]
+        [InlineData(1, 2, 'E', 'L', 1, 2, 'N')]
+        [InlineData(5, 5, 'S', 'R', 5, 5, 'W')]
         public void Should_Face(int initX, int initY, char initFacing, char newFacing, int finalX, int finalY, char finalFacing)
         {
             var initialPosition = new PositionVo(initX, initY, initFacing);
@@ -61,10 +60,10 @@ namespace RobotGrid.Tests.Domain
 
         [Theory]
         [InlineData(5, 2, 1, 1, false)]
-        [InlineData(5, 2, 5, 2, false)]
+        [InlineData(5, 2, 5, 2, true)]
         [InlineData(5, 2, 6, 2, true)]
         [InlineData(5, 2, 4, 3, true)]
-        [InlineData(5, 2, -4, 3, true)]
+        [InlineData(5, 2, -4, 1, true)]
         [InlineData(5, 2, 4, -3, true)]
         public void Should_CheckWhetherOutOfTheGrid(int gridX, int gridY, int initX, int initY, bool expected)
         {
