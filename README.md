@@ -24,3 +24,7 @@ Run the solution having the API project as the startup one. Please, open this sa
 https://localhost:44364/swagger
 
 Please, introduce the different values for the parameters after having clicked on "Try it out" and the press "Execute"
+
+## App tracing
+
+Logs tracing the robot movements can be found at your local c:\temp Please make you have the right access permissions to it
