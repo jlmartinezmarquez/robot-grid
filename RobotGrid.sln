@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32929.385
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RobotGrid.Api", "RobotGrid\RobotGrid.Api.csproj", "{ABC0035F-8A1E-48A3-8019-0F5542FB8FD5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RobotGrid.Domain", "RobotGrid.Domain\RobotGrid.Domain.csproj", "{F8F5BA29-487D-4806-B86A-328D3D2E56E6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RobotGrid.Domain", "RobotGrid.Domain\RobotGrid.Domain.csproj", "{F8F5BA29-487D-4806-B86A-328D3D2E56E6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RobotGrid.Tests", "RobotGrid.Tests\RobotGrid.Tests.csproj", "{F5C8F797-B22D-4FF0-95C1-24D2F74F798B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RobotGrid.Tests", "RobotGrid.Tests\RobotGrid.Tests.csproj", "{F5C8F797-B22D-4FF0-95C1-24D2F74F798B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RobotGrid.Api", "RobotGrid.Api\RobotGrid.Api.csproj", "{779B3955-125B-4761-96BA-8B086C55E139}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,10 +15,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{ABC0035F-8A1E-48A3-8019-0F5542FB8FD5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{ABC0035F-8A1E-48A3-8019-0F5542FB8FD5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{ABC0035F-8A1E-48A3-8019-0F5542FB8FD5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{ABC0035F-8A1E-48A3-8019-0F5542FB8FD5}.Release|Any CPU.Build.0 = Release|Any CPU
 		{F8F5BA29-487D-4806-B86A-328D3D2E56E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{F8F5BA29-487D-4806-B86A-328D3D2E56E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F8F5BA29-487D-4806-B86A-328D3D2E56E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -27,6 +23,10 @@ Global
 		{F5C8F797-B22D-4FF0-95C1-24D2F74F798B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F5C8F797-B22D-4FF0-95C1-24D2F74F798B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F5C8F797-B22D-4FF0-95C1-24D2F74F798B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{779B3955-125B-4761-96BA-8B086C55E139}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{779B3955-125B-4761-96BA-8B086C55E139}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{779B3955-125B-4761-96BA-8B086C55E139}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{779B3955-125B-4761-96BA-8B086C55E139}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
