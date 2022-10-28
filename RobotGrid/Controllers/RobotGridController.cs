@@ -2,7 +2,7 @@
 using RobotGrid.Api.Mappers;
 using RobotGrid.Api.Services;
 
-namespace RobotGrid.Api
+namespace RobotGrid.Api.Controllers
 {
     [ApiController]
     [Route("api/v1/robotgrid")]

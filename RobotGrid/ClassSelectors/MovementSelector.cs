@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace RobotGrid.Api
+namespace RobotGrid.Api.ClassSelectors
 {
     public class MovementSelector : IMovementSelector
     {

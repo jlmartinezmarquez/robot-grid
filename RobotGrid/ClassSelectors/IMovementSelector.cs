@@ -1,6 +1,6 @@
 ﻿using RobotGrid.Domain;
 
-namespace RobotGrid.Api
+namespace RobotGrid.Api.ClassSelectors
 {
     public interface IMovementSelector
     {

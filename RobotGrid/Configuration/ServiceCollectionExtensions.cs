@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using RobotGrid.Api.ClassSelectors;
 using RobotGrid.Api.Mappers;
 using RobotGrid.Api.Services;
 using RobotGrid.Domain;

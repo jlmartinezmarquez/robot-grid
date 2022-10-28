@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using RobotGrid.Api.ClassSelectors;
 using RobotGrid.Api.Models;
 using RobotGrid.Domain;
 using RobotGrid.Domain.Models;
