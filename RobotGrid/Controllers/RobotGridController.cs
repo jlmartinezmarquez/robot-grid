@@ -5,7 +5,7 @@ using RobotGrid.Api.Services;
 namespace RobotGrid.Api.Controllers
 {
     [ApiController]
-    [Route("api/v1/robotgrid")]
+    [Route("api/v1/robotgrid")]     // TODO: Take version from major project version
     public class RobotGridController : ControllerBase
     {
         private readonly IRobotGridService service;
@@ -16,14 +16,6 @@ namespace RobotGrid.Api.Controllers
             this.service = service;
             this.mapper = mapper;
         }
-
-
-        [HttpGet("aaa")]
-        public IActionResult jfdflgfl()
-        {
-            return Ok("sd");
-        }
-
 
         [HttpGet("next-position")]
         public ActionResult<string> GetNextPosition(
