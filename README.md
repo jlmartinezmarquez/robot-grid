@@ -2,7 +2,7 @@
 
 ## Using the API from a browser
 
-Run the solution having the API project as the startup one. Please, open this sample URL on the browser
+Run the solution from Visual Studio using IIS Express, and having the API project as the startup one. Please, open this sample URL on the browser
 
 https://localhost:44364/api/v1/robotgrid/next-position?gx=5&gy=3&ix=1&iy=1&f=E&ins=RFRFRFRF
 
@@ -19,7 +19,7 @@ Please, change the parameters values as needed.
 
 ## Using the API from Swagger
 
-Run the solution having the API project as the startup one. Please, open this sample URL on the browser
+Run the solution from Visual Studio using IIS Express, and having the API project as the startup one. Please, open this sample URL on the browser
 
 https://localhost:44364/swagger
 
