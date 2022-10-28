@@ -11,18 +11,9 @@ namespace RobotGrid.Api.Configuration
     {
         public static IServiceCollection RegisterDependencyInjections(this IServiceCollection services)
         {
-            // TODO: Use Scrutor package here
-            //services.Scan(scan => scan.FromAssemblies(typeof(Startup).GetTypeInfo().Assembly).AddClasses().AsImplementedInterfaces().WithScopedLifetime());
-            //services.Scan(scan => scan.FromAssemblies(typeof(IMovement).GetTypeInfo().Assembly).AddClasses().AsImplementedInterfaces().WithScopedLifetime());
-
-            services.AddScoped<IMovement, MovementF>();
-            services.AddScoped<IMovement, MovementL>();
-            services.AddScoped<IMovement, MovementR>();
-
-            services.AddScoped<IMovementSelector, MovementSelector>();
-            services.AddScoped<IGridOperations, GridOperations>();
-            services.AddScoped<IRobotGridService, RobotGridService>();
-            services.AddScoped<IRestMapper, RestMapper>();
+            services.Scan(scan => scan.FromAssemblies(typeof(Startup).GetTypeInfo().Assembly).AddClasses().AsImplementedInterfaces().WithScopedLifetime());
+            services.Scan(scan => scan.FromAssemblies(typeof(IMovement).GetTypeInfo().Assembly).AddClasses().AsImplementedInterfaces().WithScopedLifetime());
+            
             return services;
         }
     }
