@@ -1,13 +1,10 @@
-﻿using AutoMapper;
-using Microsoft.AspNetCore.Hosting;
+﻿using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.TestHost;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using RobotGrid.Api.ClassSelectors;
 using RobotGrid.Api.Mappers;
-using RobotGrid.Domain;
 using System;
-using System.Collections.Generic;
 using System.Net.Http;
 
 namespace RobotGrid.Tests.Api

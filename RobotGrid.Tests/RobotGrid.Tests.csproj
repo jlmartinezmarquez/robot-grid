@@ -23,8 +23,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\RobotGrid.Api\RobotGrid.Api.csproj" />
     <ProjectReference Include="..\RobotGrid.Domain\RobotGrid.Domain.csproj" />
-    <ProjectReference Include="..\RobotGrid\RobotGrid.Api.csproj" />
   </ItemGroup>
 
   <ItemGroup>
