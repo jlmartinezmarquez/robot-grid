@@ -32,7 +32,7 @@ namespace RobotGrid.Domain
                     finalPosition = new PositionVo(initialPosition.X, initialPosition.Y + 1, 'N');
                     break;
                 default:
-                    throw new NotImplementedException();    // TODO: log the error and throw a controlled exception
+                    throw new Exception($"Wrong facing value: {initialPosition.Facing}. Allowed values are N,S,E,W");
             }
 
             logger.LogInformation($"Went FROM X = {initialPosition.X} || Y = {initialPosition.Y} TO X = {finalPosition.X} || Y = {finalPosition.Y}");

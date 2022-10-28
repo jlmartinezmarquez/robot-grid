@@ -1,4 +1,6 @@
 ﻿using FluentAssertions;
+using Microsoft.Extensions.Logging;
+using Moq;
 using RobotGrid.Domain;
 using RobotGrid.Domain.Models;
 using System;
@@ -12,7 +14,9 @@ namespace RobotGrid.Tests.Domain
 
         public MovementFTests()
         {
-            sut = new MovementF();
+            var mockedLogger = new Mock<ILogger<MovementF>>();
+            
+            sut = new MovementF(mockedLogger.Object);
         }
 
         [Theory]
@@ -35,7 +39,7 @@ namespace RobotGrid.Tests.Domain
         {
             var initialPosition = new PositionVo(2, 2, 'Z');
 
-            Assert.Throws<NotImplementedException>(() => sut.Move(initialPosition));
+            Assert.Throws<Exception>(() => sut.Move(initialPosition));
         }
     }
 }
