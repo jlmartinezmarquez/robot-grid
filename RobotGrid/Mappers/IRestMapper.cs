@@ -1,4 +1,6 @@
-﻿using RobotGrid.Api.Models;
+﻿using AutoMapper;
+using RobotGrid.Api.Models;
+using RobotGrid.Domain.Models;
 
 namespace RobotGrid.Api.Mappers
 {
@@ -10,6 +12,12 @@ namespace RobotGrid.Api.Mappers
             string initX,
             string initY,
             string initFacing,
-            string instructions);
+        string instructions);
+
+        GridDimensionsVo ToValueObject(GridDimensions gridDimensions);
+
+        PositionVo ToValueObject(Position position);
+
+        string FromValueObjectToString(PositionVo positionVo);
     }
 }

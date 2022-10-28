@@ -20,7 +20,7 @@ namespace RobotGrid.Tests.Api
         { 
             sut = new RobotGridService(
                 fixture.MovementSelector, 
-                fixture.Mapper, 
+                fixture.RestMapper, 
                 new GridOperations(fixture.Configuration));
         }
 

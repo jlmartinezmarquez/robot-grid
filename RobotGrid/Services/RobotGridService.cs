@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using RobotGrid.Api.ClassSelectors;
+using RobotGrid.Api.Mappers;
 using RobotGrid.Api.Models;
 using RobotGrid.Domain;
 using RobotGrid.Domain.Models;
@@ -10,22 +11,21 @@ namespace RobotGrid.Api.Services
     public class RobotGridService : IRobotGridService
     {
         private readonly IMovementSelector movementSelector;
-        private readonly IMapper mapper;
+        private readonly IRestMapper restMapper;
         private readonly IGridOperations grid;
 
-        public RobotGridService(IMovementSelector movementSelector, IMapper mapper, IGridOperations grid)
+        public RobotGridService(IMovementSelector movementSelector, IRestMapper restMapper, IGridOperations grid)
         {
             this.movementSelector = movementSelector;
-            this.mapper = mapper;
+            this.restMapper = restMapper;
             this.grid = grid;
         }
 
         public string CalculateFinalPosition(MovementInstructions movementInstructions)
         {
             //TODO: to be moved to Mapper class
-            var gridDimensionsVo = mapper.Map<GridDimensionsVo>(movementInstructions.GridDimensions);
-            var positionVo = mapper.Map<PositionVo>(movementInstructions.InitialPosition);
-
+            var gridDimensionsVo = restMapper.ToValueObject(movementInstructions.GridDimensions);
+            var positionVo = restMapper.ToValueObject(movementInstructions.InitialPosition);
 
             foreach (var instruction in movementInstructions.Instructions)
             {
@@ -36,10 +36,10 @@ namespace RobotGrid.Api.Services
 
             if (grid.CheckWhetherOutOfTheGrid(gridDimensionsVo, positionVo))
             {
-                return $"{mapper.Map<string>(positionVo)} LOST";
+                return $"{restMapper.FromValueObjectToString(positionVo)} LOST";
             }
 
-            return mapper.Map<string>(positionVo);
+            return restMapper.FromValueObjectToString(positionVo);
         }        
     }
 }

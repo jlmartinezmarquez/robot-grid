@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.TestHost;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using RobotGrid.Api.ClassSelectors;
+using RobotGrid.Api.Mappers;
 using RobotGrid.Domain;
 using System;
 using System.Collections.Generic;
@@ -16,7 +17,7 @@ namespace RobotGrid.Tests.Api
         public readonly IConfiguration Configuration;
         public readonly TestServer Server;
         public readonly HttpClient Client;
-        public readonly IMapper Mapper;
+        public readonly IRestMapper RestMapper;
         public readonly IMovementSelector MovementSelector;
 
         public ClassFixture()
@@ -33,7 +34,7 @@ namespace RobotGrid.Tests.Api
 
             Client = Server.CreateClient();
 
-            Mapper = Server.Services.GetRequiredService<IMapper>();
+            RestMapper = Server.Services.GetRequiredService<IRestMapper>();
             MovementSelector = Server.Services.GetRequiredService<IMovementSelector>();
         }
 
