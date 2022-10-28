@@ -1,5 +1,6 @@
 ﻿using FluentAssertions;
 using Microsoft.Extensions.Configuration;
+using RobotGrid.Api;
 using RobotGrid.Api.Models;
 using RobotGrid.Api.Services;
 using RobotGrid.Domain;
@@ -17,7 +18,10 @@ namespace RobotGrid.Tests.Api
 
         public RobotGridServiceTests(ClassFixture fixture)
         { 
-            sut = new RobotGridService(new Movement(fixture.Configuration), fixture.Mapper);
+            sut = new RobotGridService(
+                fixture.MovementSelector, 
+                fixture.Mapper, 
+                new GridOperations(fixture.Configuration));
         }
 
         [Theory]

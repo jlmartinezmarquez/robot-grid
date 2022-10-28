@@ -5,7 +5,7 @@ using RobotGrid.Api.Services;
 namespace RobotGrid.Api
 {
     [ApiController]
-    [Route("/api/v1/robotgrid")]
+    [Route("api/v1/robotgrid")]
     public class RobotGridController : ControllerBase
     {
         private readonly IRobotGridService service;
@@ -19,7 +19,7 @@ namespace RobotGrid.Api
 
 
         [HttpGet("aaa")]
-        public ActionResult<string> jfdflgfl()
+        public IActionResult jfdflgfl()
         {
             return Ok("sd");
         }

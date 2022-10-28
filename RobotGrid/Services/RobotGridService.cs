@@ -8,30 +8,32 @@ namespace RobotGrid.Api.Services
 {
     public class RobotGridService : IRobotGridService
     {
-        private readonly IMovement movement;
+        private readonly IMovementSelector movementSelector;
         private readonly IMapper mapper;
+        private readonly IGridOperations grid;
 
-        public RobotGridService(IMovement movement, IMapper mapper)
+        public RobotGridService(IMovementSelector movementSelector, IMapper mapper, IGridOperations grid)
         {
-            this.movement = movement;
+            this.movementSelector = movementSelector;
             this.mapper = mapper;
+            this.grid = grid;
         }
 
         public string CalculateFinalPosition(MovementInstructions movementInstructions)
         {
+            //TODO: to be moved to Mapper class
             var gridDimensionsVo = mapper.Map<GridDimensionsVo>(movementInstructions.GridDimensions);
             var positionVo = mapper.Map<PositionVo>(movementInstructions.InitialPosition);
 
+
             foreach (var instruction in movementInstructions.Instructions)
             {
-                // TODO: There might be a better SOLID way to implement this. I think it might be cleaner this way instead of having classes with just 1 method each
+                var movementClass = movementSelector.GetMovement(instruction);
 
-                positionVo = instruction == 'F'
-                    ? movement.MoveUpFront(positionVo)
-                    : movement.Face(positionVo, instruction);
+                positionVo = movementClass.Move(positionVo);
             }
 
-            if (movement.CheckWhetherOutOfTheGrid(gridDimensionsVo, positionVo))
+            if (grid.CheckWhetherOutOfTheGrid(gridDimensionsVo, positionVo))
             {
                 return $"{mapper.Map<string>(positionVo)} LOST";
             }
