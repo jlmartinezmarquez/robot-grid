@@ -18,6 +18,7 @@ namespace RobotGrid
         {
             services.AddControllers();
             services.ConfigureMappers();
+            services.AddSwagger();
             services.AddMvc();
             services.RegisterDependencyInjections();
         }
@@ -29,6 +30,8 @@ namespace RobotGrid
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.AddSwagger();
 
             app.UseRouting();
 

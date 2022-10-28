@@ -1,13 +1,10 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using RobotGrid.Api.ClassSelectors;
-using RobotGrid.Api.Mappers;
-using RobotGrid.Api.Services;
 using RobotGrid.Domain;
 using System.Reflection;
 
 namespace RobotGrid.Api.Configuration
 {
-    public static class ServiceCollectionExtensions
+    public static class DependencyInjectionServiceCollectionExtensions
     {
         public static IServiceCollection RegisterDependencyInjections(this IServiceCollection services)
         {
